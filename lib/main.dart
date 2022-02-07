@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
           width: 200,
           margin: EdgeInsets.all(20),
           padding: EdgeInsets.all(30),
+          alignment: Alignment.center,
         ),
       ),
       drawer: Drawer(),
