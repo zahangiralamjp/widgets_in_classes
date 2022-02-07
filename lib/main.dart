@@ -35,12 +35,18 @@ class _MyButtomState extends State<MyButtom> {
                     padding:
                         EdgeInsets.symmetric(horizontal: 40.0, vertical: 25.0),
                   ),
+                  onLongPress: () {
+                    print('Hello Long Press');
+                  },
                   onPressed: () {
                     print(
-                      'Hello Z',
+                      'Hello On Press',
                     );
                   },
-                  child: Text('Click Here')),
+                  child: Text(
+                    'Elevated Button',
+                    style: TextStyle(fontSize: 30),
+                  )),
             ],
           ),
         ),
