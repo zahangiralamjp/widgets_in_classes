@@ -3,47 +3,93 @@ import 'package:flutter/material.dart';
 void main(List<String> args) {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    theme: ThemeData(primarySwatch: Colors.amber),
-    title: 'Grid Builder',
-    home: MyBuilder(),
+    home: MyRadio(),
   ));
 }
 
-class MyBuilder extends StatefulWidget {
-  const MyBuilder({Key? key}) : super(key: key);
+class MyRadio extends StatefulWidget {
+  const MyRadio({Key? key}) : super(key: key);
 
   @override
-  _MyBuilderState createState() => _MyBuilderState();
+  _MyRadioState createState() => _MyRadioState();
 }
 
-class _MyBuilderState extends State<MyBuilder> {
-  final number = List.generate(100, (index) => 'Item : $index');
+class _MyRadioState extends State<MyRadio> {
+  int _value = 1;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Grid View Builder'),
+        title: Text('Radio'),
         centerTitle: true,
       ),
-      body: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 4, mainAxisSpacing: 12, crossAxisSpacing: 12),
-          itemCount: number.length,
-          itemBuilder: (context, index) {
-            final items = number[index];
-            return GridTile(
-              header: Icon(Icons.power),
-              child: Container(
-                alignment: Alignment.center,
-                height: 50,
-                width: 50,
-                color: Colors.amber,
-                child: Text(items),
-              ),
-              footer: Text('Person: $items'),
-            );
-          }),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(32.0),
+            child: Row(
+              children: [
+                Radio(
+                  value: 1,
+                  groupValue: _value,
+                  onChanged: (value) {
+                    setState(() {
+                      _value = 1;
+                    });
+                  },
+                ),
+                Text('Radio 1'),
+                SizedBox(
+                  height: 10,
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(32.0),
+            child: Row(
+              children: [
+                Radio(
+                  value: 2,
+                  groupValue: _value,
+                  onChanged: (value) {
+                    setState(() {
+                      _value = 2;
+                    });
+                  },
+                ),
+                Text('Radio 2'),
+                SizedBox(
+                  height: 10,
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(32.0),
+            child: Row(
+              children: [
+                Radio(
+                  value: 3,
+                  groupValue: _value,
+                  onChanged: (value) {
+                    setState(() {
+                      _value = 3;
+                    });
+                  },
+                ),
+                Text('Radio 3'),
+                SizedBox(
+                  height: 10,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
