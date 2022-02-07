@@ -33,6 +33,7 @@ class _MyBuilderState extends State<MyBuilder> {
           itemBuilder: (context, index) {
             final items = number[index];
             return Container(
+              alignment: Alignment.center,
               height: 50,
               width: 50,
               color: Colors.amber,
