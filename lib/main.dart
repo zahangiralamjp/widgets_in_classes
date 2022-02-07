@@ -2,34 +2,41 @@ import 'package:flutter/material.dart';
 
 void main(List<String> args) {
   runApp(MaterialApp(
-    theme: ThemeData(primarySwatch: Colors.pink),
     debugShowCheckedModeBanner: false,
-    home: MyApp(),
+    home: MyButtom(),
   ));
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MyButtom extends StatefulWidget {
+  const MyButtom({Key? key}) : super(key: key);
 
   @override
-  _MyAppState createState() => _MyAppState();
+  _MyButtomState createState() => _MyButtomState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyButtomState extends State<MyButtom> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Blue Bar'),
+        title: Text('Buttom'),
       ),
       body: Center(
-/////shift + ctrl + r ////
-        child: ElevatedButton(
-            onPressed: () {
-              print('Hello Zahangir Alam');
-            },
-            child: Text('click here')),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              ElevatedButton(
+                  onPressed: () {
+                    print('Hello Z');
+                  },
+                  child: Text('Click Here')),
+            ],
+          ),
+        ),
       ),
+      drawer: Drawer(),
     );
   }
 }
