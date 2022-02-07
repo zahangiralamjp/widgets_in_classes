@@ -34,8 +34,40 @@ class _MySignUpFormState extends State<MySignUpForm> {
                     border: OutlineInputBorder(),
                     labelText: 'User Name',
                     labelStyle: TextStyle(fontSize: 20, color: Colors.amber),
-                    hintText: 'User'),
+                    hintText: 'Your Name'),
               ),
+              SizedBox(
+                height: 10,
+              ),
+              TextFormField(
+                keyboardType: TextInputType.visiblePassword,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Password',
+                    labelStyle: TextStyle(fontSize: 20, color: Colors.blue),
+                    hintText: 'Your Password'),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              TextFormField(
+                keyboardType: TextInputType.phone,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Phone Number',
+                    labelStyle: TextStyle(fontSize: 20, color: Colors.green),
+                    hintText: 'Your Phone Number'),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 245.0, vertical: 16.0),
+                  ),
+                  onPressed: () {},
+                  child: Text('Sign Up')),
             ],
           )),
         ),
