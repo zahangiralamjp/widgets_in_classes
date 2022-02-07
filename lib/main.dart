@@ -1,90 +1,72 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
+void main(List<String> args) {
+  runApp(MaterialApp(
+    theme: ThemeData(primarySwatch: Colors.amber),
+    debugShowCheckedModeBanner: false,
+    home: MyGridView(),
+    title: 'DefaultTabController',
+  ));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MyGridView extends StatefulWidget {
+  const MyGridView({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MyBottomNavigationBar(),
-    );
-  }
+  _MyGridViewState createState() => _MyGridViewState();
 }
 
-class MyBottomNavigationBar extends StatefulWidget {
-  const MyBottomNavigationBar({Key? key}) : super(key: key);
-
-  @override
-  _MyBottomNavigationBarState createState() => _MyBottomNavigationBarState();
-}
-
-class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
-  var currentIndex = 0;
-  final screen = [
-    Center(
-      child: Text(
-        'Home',
-        style: TextStyle(fontSize: 30),
-      ),
-    ),
-    Center(
-      child: Text(
-        'Label',
-        style: TextStyle(fontSize: 30),
-      ),
-    ),
-    Center(
-      child: Text(
-        'Chat',
-        style: TextStyle(fontSize: 30),
-      ),
-    ),
-    Center(
-      child: Text(
-        'Person',
-        style: TextStyle(fontSize: 30),
-      ),
-    ),
-  ];
+class _MyGridViewState extends State<MyGridView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: screen[currentIndex],
+      backgroundColor: Colors.amber,
       appBar: AppBar(
-        title: Text('Bottom Navigation Bar'),
+        title: Text('GridView'),
         centerTitle: true,
       ),
-      bottomNavigationBar: BottomNavigationBar(
-          currentIndex: currentIndex,
-          onTap: (index) => setState(() => currentIndex = index),
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: GridView.count(
+            crossAxisCount: 8,
+            mainAxisSpacing: 5,
+            crossAxisSpacing: 5,
+            children: [
+              Container(
+                width: 50,
+                height: 50,
+                color: Colors.black,
               ),
-              label: 'Home',
-              backgroundColor: Colors.blue,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
-              label: 'Label',
-              backgroundColor: Colors.deepOrangeAccent,
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.chat),
-                label: 'Chat',
-                backgroundColor: Colors.indigo),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Person',
-              backgroundColor: Colors.deepPurpleAccent,
-            ),
-          ]),
+              Container(
+                width: 50,
+                height: 50,
+                color: Colors.white,
+              ),
+              Container(
+                width: 50,
+                height: 50,
+                color: Colors.black,
+              ),
+              Container(
+                width: 50,
+                height: 50,
+                color: Colors.white,
+              ),
+              Container(
+                width: 50,
+                height: 50,
+                color: Colors.black,
+              ),
+              Container(
+                width: 50,
+                height: 50,
+                color: Colors.white,
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
