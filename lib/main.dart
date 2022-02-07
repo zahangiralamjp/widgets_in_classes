@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 void main(List<String> args) {
   runApp(MaterialApp(
     theme: ThemeData(primarySwatch: Colors.brown),
-    title: 'Demo App',
     home: MyApp(),
   ));
 }
@@ -12,17 +11,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: null),
       appBar: AppBar(
-        title: Text('This is AppBer'),
+        title: Text('Rich Text!'),
       ),
-      body: Container(
-        child: Text(
-          "Hello world",
-          textAlign: TextAlign.right,
-          textDirection: TextDirection.rtl,
-          style: TextStyle(fontSize: 50, backgroundColor: Colors.pink),
-        ),
+      body: Center(
+        child: RichText(
+            text: TextSpan(children: [
+          TextSpan(
+              text: 'Hello',
+              style: TextStyle(color: Colors.amber, fontSize: 25)),
+          TextSpan(
+              text: 'World!',
+              style: TextStyle(color: Colors.blueGrey, fontSize: 50)),
+        ])),
       ),
     );
   }
