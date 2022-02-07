@@ -9,7 +9,6 @@ void main(List<String> args) {
 
 class MyStack extends StatefulWidget {
   const MyStack({Key? key}) : super(key: key);
-
   @override
   _MyStackState createState() => _MyStackState();
 }
@@ -25,20 +24,26 @@ class _MyStackState extends State<MyStack> {
         child: Stack(
           children: <Widget>[
             Container(
-              height: 600,
-              width: 600,
-              color: Colors.amberAccent,
-            ),
-            Container(
               height: 500,
               width: 500,
-              color: Colors.black12,
+              color: Colors.red,
             ),
-            Container(
-              height: 400,
-              width: 400,
-              color: Colors.blue,
-            ),
+            Positioned(
+                top: 10,
+                right: 10,
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  color: Colors.amber,
+                )),
+            Positioned(
+                top: 10,
+                left: 10,
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  color: Colors.amber,
+                )),
           ],
         ),
       ),
