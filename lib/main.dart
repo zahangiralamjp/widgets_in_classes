@@ -2,71 +2,43 @@ import 'package:flutter/material.dart';
 
 void main(List<String> args) {
   runApp(MaterialApp(
-    theme: ThemeData(primarySwatch: Colors.amber),
     debugShowCheckedModeBanner: false,
-    home: MyGridView(),
-    title: 'DefaultTabController',
+    theme: ThemeData(primarySwatch: Colors.amber),
+    title: 'Grid Builder',
+    home: MyBuilder(),
   ));
 }
 
-class MyGridView extends StatefulWidget {
-  const MyGridView({Key? key}) : super(key: key);
+class MyBuilder extends StatefulWidget {
+  const MyBuilder({Key? key}) : super(key: key);
 
   @override
-  _MyGridViewState createState() => _MyGridViewState();
+  _MyBuilderState createState() => _MyBuilderState();
 }
 
-class _MyGridViewState extends State<MyGridView> {
+class _MyBuilderState extends State<MyBuilder> {
+  final number = List.generate(100, (index) => 'Item : $index');
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber,
       appBar: AppBar(
-        title: Text('GridView'),
+        title: Text('Grid View Builder'),
         centerTitle: true,
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: GridView.count(
-            crossAxisCount: 8,
-            mainAxisSpacing: 5,
-            crossAxisSpacing: 5,
-            children: [
-              Container(
-                width: 50,
-                height: 50,
-                color: Colors.black,
-              ),
-              Container(
-                width: 50,
-                height: 50,
-                color: Colors.white,
-              ),
-              Container(
-                width: 50,
-                height: 50,
-                color: Colors.black,
-              ),
-              Container(
-                width: 50,
-                height: 50,
-                color: Colors.white,
-              ),
-              Container(
-                width: 50,
-                height: 50,
-                color: Colors.black,
-              ),
-              Container(
-                width: 50,
-                height: 50,
-                color: Colors.white,
-              ),
-            ],
-          ),
-        ),
-      ),
+      body: GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 4, mainAxisSpacing: 12, crossAxisSpacing: 12),
+          itemCount: number.length,
+          itemBuilder: (context, index) {
+            final items = number[index];
+            return Container(
+              height: 50,
+              width: 50,
+              color: Colors.amber,
+              child: Text(items),
+            );
+          }),
     );
   }
 }
