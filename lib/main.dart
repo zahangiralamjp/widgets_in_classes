@@ -11,36 +11,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Center(
-        child: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: <Widget>[
-              Container(
-                height: 100,
-                width: 300,
-                color: Colors.amber,
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Container(
-                height: 100,
-                width: 300,
-                color: Colors.black12,
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Container(
-                height: 100,
-                width: 300,
-                color: Colors.blueAccent,
-              ),
-              SizedBox(
-                width: 10,
-              ),
-            ],
+        child: Container(
+          width: 200,
+          height: 200,
+          decoration: BoxDecoration(
+            color: Colors.amber,
+            border: Border.all(width: 4, color: Colors.blue),
+            borderRadius: BorderRadius.circular(50),
           ),
         ),
       ),
