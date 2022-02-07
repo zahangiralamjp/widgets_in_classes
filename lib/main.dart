@@ -11,12 +11,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber,
       appBar: AppBar(
         title: Text('ZZ'),
       ),
       body: Center(
-        child: Text('hel0lo'),
+        child: Container(
+          child: Text(
+            'hello! I am Z',
+            style: TextStyle(fontSize: 25),
+          ),
+          color: Colors.amber,
+        ),
       ),
       drawer: Drawer(),
       floatingActionButton: FloatingActionButton(
