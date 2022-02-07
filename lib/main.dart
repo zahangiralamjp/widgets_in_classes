@@ -18,9 +18,13 @@ class MyApp extends StatelessWidget {
         child: Container(
           child: Text(
             'hello! I am Z',
-            style: TextStyle(fontSize: 25),
+            style: TextStyle(fontSize: 25, color: Colors.white),
           ),
           color: Colors.amber,
+          height: 200,
+          width: 200,
+          margin: EdgeInsets.all(20),
+          padding: EdgeInsets.all(30),
         ),
       ),
       drawer: Drawer(),
