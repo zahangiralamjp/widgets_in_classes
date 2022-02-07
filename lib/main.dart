@@ -25,6 +25,17 @@ class MyApp extends StatelessWidget {
                   hintText: 'Enter User Name',
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
+              TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Password',
+                  hintText: 'Enter password',
+                ),
+                keyboardType: TextInputType.emailAddress,
+              ),
             ],
           ),
         ));
