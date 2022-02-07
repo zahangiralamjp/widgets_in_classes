@@ -12,12 +12,9 @@ class MyApp extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Container(
-          width: 500,
-          height: 100,
-          color: Colors.amber,
-        ),
+        child: Text('hello'),
       ),
+      drawer: Drawer(),
     );
   }
 }
