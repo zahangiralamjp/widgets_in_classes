@@ -11,45 +11,38 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('ZZ'),
-      ),
       body: Center(
         child: SingleChildScrollView(
-          child: Column(
+          scrollDirection: Axis.horizontal,
+          child: Row(
             children: <Widget>[
               Container(
-                width: 250,
-                height: 250,
+                height: 100,
+                width: 300,
                 color: Colors.amber,
               ),
               SizedBox(
-                height: 10,
+                width: 10,
               ),
               Container(
-                width: 250,
-                height: 250,
-                color: Colors.black,
+                height: 100,
+                width: 300,
+                color: Colors.black12,
               ),
               SizedBox(
-                height: 10,
+                width: 10,
               ),
               Container(
-                width: 250,
-                height: 250,
-                color: Colors.blue,
+                height: 100,
+                width: 300,
+                color: Colors.blueAccent,
               ),
               SizedBox(
-                height: 10,
+                width: 10,
               ),
             ],
           ),
         ),
-      ),
-      drawer: Drawer(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: null,
-        child: Icon(Icons.add),
       ),
     );
   }
