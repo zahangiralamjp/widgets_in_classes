@@ -25,11 +25,20 @@ class _MyButtomState extends State<MyButtom> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               ElevatedButton(
+                  ////// buttom style ///
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.deepOrange,
+                    onPrimary: Colors.yellow,
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 40.0, vertical: 25.0),
+                  ),
                   onPressed: () {
-                    print('Hello Z');
+                    print(
+                      'Hello Z',
+                    );
                   },
                   child: Text('Click Here')),
             ],
