@@ -32,12 +32,16 @@ class _MyBuilderState extends State<MyBuilder> {
           itemCount: number.length,
           itemBuilder: (context, index) {
             final items = number[index];
-            return Container(
-              alignment: Alignment.center,
-              height: 50,
-              width: 50,
-              color: Colors.amber,
-              child: Text(items),
+            return GridTile(
+              header: Icon(Icons.power),
+              child: Container(
+                alignment: Alignment.center,
+                height: 50,
+                width: 50,
+                color: Colors.amber,
+                child: Text(items),
+              ),
+              footer: Text('Person: $items'),
             );
           }),
     );
