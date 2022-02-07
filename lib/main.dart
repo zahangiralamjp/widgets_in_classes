@@ -15,21 +15,26 @@ class MyApp extends StatelessWidget {
         title: Text('ZZ'),
       ),
       body: Center(
-        child: Column(
-          children: <Widget>[
-            Text('hello W'),
-            SizedBox(
-              height: 15,
-            ),
-            Text('hello S'),
-            SizedBox(
-              height: 15,
-            ),
-            Text('hello B'),
-            SizedBox(
-              height: 15,
-            ),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Container(
+                width: 250,
+                height: 250,
+                color: Colors.amber,
+              ),
+              Container(
+                width: 250,
+                height: 250,
+                color: Colors.black,
+              ),
+              Container(
+                width: 250,
+                height: 250,
+                color: Colors.blue,
+              ),
+            ],
+          ),
         ),
       ),
       drawer: Drawer(),
