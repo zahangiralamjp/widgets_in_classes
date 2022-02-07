@@ -16,7 +16,14 @@ class MyApp extends StatelessWidget {
       appBar: AppBar(
         title: Text('This is AppBer'),
       ),
-      body: Center(),
+      body: Container(
+        child: Text(
+          "Hello world",
+          textAlign: TextAlign.right,
+          textDirection: TextDirection.rtl,
+          style: TextStyle(fontSize: 50, backgroundColor: Colors.pink),
+        ),
+      ),
     );
   }
 }
