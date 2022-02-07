@@ -15,17 +15,21 @@ class MyApp extends StatelessWidget {
         title: Text('ZZ'),
       ),
       body: Center(
-        child: Container(
-          child: Text(
-            'hello! I am Z',
-            style: TextStyle(fontSize: 25, color: Colors.white),
-          ),
-          color: Colors.amber,
-          height: 200,
-          width: 200,
-          margin: EdgeInsets.all(20),
-          padding: EdgeInsets.all(30),
-          alignment: Alignment.center,
+        child: Column(
+          children: <Widget>[
+            Text('hello W'),
+            SizedBox(
+              height: 15,
+            ),
+            Text('hello S'),
+            SizedBox(
+              height: 15,
+            ),
+            Text('hello B'),
+            SizedBox(
+              height: 15,
+            ),
+          ],
         ),
       ),
       drawer: Drawer(),
