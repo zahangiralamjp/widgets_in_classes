@@ -11,20 +11,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Rich Text!'),
-      ),
-      body: Center(
-        child: RichText(
-            text: TextSpan(children: [
-          TextSpan(
-              text: 'Hello',
-              style: TextStyle(color: Colors.amber, fontSize: 25)),
-          TextSpan(
-              text: 'World!',
-              style: TextStyle(color: Colors.blueGrey, fontSize: 50)),
-        ])),
-      ),
-    );
+        appBar: AppBar(
+          title: Text('Text Field'),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'User Name',
+                  hintText: 'Enter User Name',
+                ),
+              ),
+            ],
+          ),
+        ));
   }
 }
