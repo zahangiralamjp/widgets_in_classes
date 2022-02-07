@@ -2,58 +2,53 @@ import 'package:flutter/material.dart';
 
 void main(List<String> args) {
   runApp(MaterialApp(
-    theme: ThemeData(primaryColor: Colors.amber),
-    debugShowCheckedModeBanner: false,
     home: MyApp(),
-    title: 'DefaultTabController',
   ));
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 5,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text('DefaultTabController'),
-          centerTitle: true,
-          leading: IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
-          actions: [
-            IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-            IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
-          ],
-          bottom: TabBar(tabs: [
-            Tab(
-              icon: Icon(Icons.dashboard),
-              child: Text('Dashboard'),
-            ),
-            Tab(
-              icon: Icon(Icons.games),
-              child: Text('Game'),
-            ),
-            Tab(
-              icon: Icon(Icons.hardware),
-              child: Text('Hardware'),
-            ),
-            Tab(
-              icon: Icon(Icons.add_chart),
-              child: Text('Chart'),
-            ),
-            Tab(
-              icon: Icon(Icons.face),
-              child: Text('Profile'),
-            ),
-          ]),
+    var p1 =
+        'https://images.unsplash.com/photo-1638963436960-6de003ff7339?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80';
+    return Scaffold(
+      appBar: AppBar(),
+      body: Center(
+        child: Container(
+          width: 300,
+          height: 300,
+          color: Colors.amber,
         ),
-        body: Center(),
+      ),
+      drawer: Drawer(
+        child: Container(
+          child: ListView(
+            children: [
+              UserAccountsDrawerHeader(
+                  currentAccountPicture: CircleAvatar(
+                    backgroundImage: NetworkImage(p1),
+                  ),
+                  accountName: Text('Zahangir Alam'),
+                  accountEmail: Text('z@gmail.com')),
+              ListTile(
+                onTap: () {
+                  print('Click Profile');
+                },
+                leading: Icon(Icons.face),
+                title: Text('Profile'),
+              ),
+              ListTile(
+                onTap: () {
+                  print('Click Email');
+                },
+                leading: Icon(Icons.email),
+                title: Text('E mail'),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
