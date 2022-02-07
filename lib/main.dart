@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-void main(List<String> args) {
-  runApp(MaterialApp(
-    home: MyApp(),
-  ));
+void main() {
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -11,45 +9,82 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var p1 =
-        'https://images.unsplash.com/photo-1638963436960-6de003ff7339?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80';
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MyBottomNavigationBar(),
+    );
+  }
+}
+
+class MyBottomNavigationBar extends StatefulWidget {
+  const MyBottomNavigationBar({Key? key}) : super(key: key);
+
+  @override
+  _MyBottomNavigationBarState createState() => _MyBottomNavigationBarState();
+}
+
+class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
+  var currentIndex = 0;
+  final screen = [
+    Center(
+      child: Text(
+        'Home',
+        style: TextStyle(fontSize: 30),
+      ),
+    ),
+    Center(
+      child: Text(
+        'Label',
+        style: TextStyle(fontSize: 30),
+      ),
+    ),
+    Center(
+      child: Text(
+        'Chat',
+        style: TextStyle(fontSize: 30),
+      ),
+    ),
+    Center(
+      child: Text(
+        'Person',
+        style: TextStyle(fontSize: 30),
+      ),
+    ),
+  ];
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Center(
-        child: Container(
-          width: 300,
-          height: 300,
-          color: Colors.amber,
-        ),
+      body: screen[currentIndex],
+      appBar: AppBar(
+        title: Text('Bottom Navigation Bar'),
+        centerTitle: true,
       ),
-      drawer: Drawer(
-        child: Container(
-          child: ListView(
-            children: [
-              UserAccountsDrawerHeader(
-                  currentAccountPicture: CircleAvatar(
-                    backgroundImage: NetworkImage(p1),
-                  ),
-                  accountName: Text('Zahangir Alam'),
-                  accountEmail: Text('z@gmail.com')),
-              ListTile(
-                onTap: () {
-                  print('Click Profile');
-                },
-                leading: Icon(Icons.face),
-                title: Text('Profile'),
+      bottomNavigationBar: BottomNavigationBar(
+          currentIndex: currentIndex,
+          onTap: (index) => setState(() => currentIndex = index),
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
               ),
-              ListTile(
-                onTap: () {
-                  print('Click Email');
-                },
-                leading: Icon(Icons.email),
-                title: Text('E mail'),
-              ),
-            ],
-          ),
-        ),
-      ),
+              label: 'Home',
+              backgroundColor: Colors.blue,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.favorite),
+              label: 'Label',
+              backgroundColor: Colors.deepOrangeAccent,
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.chat),
+                label: 'Chat',
+                backgroundColor: Colors.indigo),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Person',
+              backgroundColor: Colors.deepPurpleAccent,
+            ),
+          ]),
     );
   }
 }
