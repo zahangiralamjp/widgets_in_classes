@@ -3,55 +3,45 @@ import 'package:flutter/material.dart';
 void main(List<String> args) {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: MyButtom(),
+    home: MyStack(),
   ));
 }
 
-class MyButtom extends StatefulWidget {
-  const MyButtom({Key? key}) : super(key: key);
+class MyStack extends StatefulWidget {
+  const MyStack({Key? key}) : super(key: key);
 
   @override
-  _MyButtomState createState() => _MyButtomState();
+  _MyStackState createState() => _MyStackState();
 }
 
-class _MyButtomState extends State<MyButtom> {
+class _MyStackState extends State<MyStack> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Buttom'),
+        title: Text('Hello Stack'),
       ),
       body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              ElevatedButton(
-                  ////// buttom style ///
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.deepOrange,
-                    onPrimary: Colors.yellow,
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 40.0, vertical: 25.0),
-                  ),
-                  onLongPress: () {
-                    print('Hello Long Press');
-                  },
-                  onPressed: () {
-                    print(
-                      'Hello On Press',
-                    );
-                  },
-                  child: Text(
-                    'Elevated Button',
-                    style: TextStyle(fontSize: 30),
-                  )),
-            ],
-          ),
+        child: Stack(
+          children: <Widget>[
+            Container(
+              height: 600,
+              width: 600,
+              color: Colors.amberAccent,
+            ),
+            Container(
+              height: 500,
+              width: 500,
+              color: Colors.black12,
+            ),
+            Container(
+              height: 400,
+              width: 400,
+              color: Colors.blue,
+            ),
+          ],
         ),
       ),
-      drawer: Drawer(),
     );
   }
 }
