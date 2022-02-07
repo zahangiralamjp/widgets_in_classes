@@ -3,48 +3,41 @@ import 'package:flutter/material.dart';
 void main(List<String> args) {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: MyStack(),
+    home: MySignUpForm(),
   ));
 }
 
-class MyStack extends StatefulWidget {
-  const MyStack({Key? key}) : super(key: key);
+class MySignUpForm extends StatefulWidget {
+  const MySignUpForm({Key? key}) : super(key: key);
+
   @override
-  _MyStackState createState() => _MyStackState();
+  _MySignUpFormState createState() => _MySignUpFormState();
 }
 
-class _MyStackState extends State<MyStack> {
+class _MySignUpFormState extends State<MySignUpForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Hello Stack'),
+        title: Text('My Sign Up Form'),
+        centerTitle: true,
       ),
       body: Center(
-        child: Stack(
-          children: <Widget>[
-            Container(
-              height: 500,
-              width: 500,
-              color: Colors.red,
-            ),
-            Positioned(
-                top: 10,
-                right: 10,
-                child: Container(
-                  width: 100,
-                  height: 100,
-                  color: Colors.amber,
-                )),
-            Positioned(
-                top: 10,
-                left: 10,
-                child: Container(
-                  width: 100,
-                  height: 100,
-                  color: Colors.amber,
-                )),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Form(
+              child: Column(
+            children: [
+              TextFormField(
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'User Name',
+                    labelStyle: TextStyle(fontSize: 20, color: Colors.amber),
+                    hintText: 'User'),
+              ),
+            ],
+          )),
         ),
       ),
     );
